@@ -24,7 +24,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "prepare": "husky install",
-    "json-server": "json-server __json_server_mock/db.json --watch --port 3001"
+    "json-server": "json-server __json_server_mock/db.json --watch --port 3001 --middlewares ./__json_server_mock/middleware.js"
   },
   "eslintConfig": {
     "extends": [
@@ -48,6 +48,7 @@
   "devDependencies": {
     "@commitlint/cli": "^13.1.0",
     "@commitlint/config-conventional": "^13.1.0",
+    "@types/qs": "^6.9.7",
     "eslint-config-prettier": "^8.3.0",
     "husky": "^7.0.1",
     "lint-staged": "^11.1.1",

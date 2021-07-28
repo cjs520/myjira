@@ -2,6 +2,7 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import { ProjectListScreen } from "./screens/project-list";
+import { LoginScreen } from "./screens/login";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       {/*    Learn React*/}
       {/*  </a>*/}
       {/*</header>*/}
+      <LoginScreen />
       <ProjectListScreen />
     </div>
   );

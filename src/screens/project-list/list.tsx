@@ -1,5 +1,18 @@
 import React from "react";
-export const List = ({ users, list }) => {
+import { User } from "./serach-panel";
+
+interface Project {
+  id: string;
+  name: string;
+  personId: string;
+  pin: string;
+  organization: string;
+}
+interface ListProps {
+  users: User[];
+  list: Project[];
+}
+export const List = ({ users, list }: ListProps) => {
   return (
     <table>
       <thead>
