@@ -1,14 +1,19 @@
-import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
+
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { loadDevTools } from "jira-dev-tool";
+import "antd/dist/antd.less";
+import { AppProviders } from "./context";
+import React from "react";
+import { AuthProvider } from "./context/auth-context";
 
 loadDevTools(() =>
   ReactDOM.render(
     <React.StrictMode>
-      <App />
+      <AuthProvider>
+        <App />
+      </AuthProvider>
     </React.StrictMode>,
     document.getElementById("root")
   )
