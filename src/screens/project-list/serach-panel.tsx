@@ -1,5 +1,6 @@
 import React from "react";
-import { Input, Select } from "antd";
+import { Input, Select, Form } from "antd";
+import styled from "@emotion/styled";
 
 export interface User {
   token: string;
@@ -18,14 +19,17 @@ interface SerachPanelProps {
 
 export const SearchPanel = ({ users, param, setParam }: SerachPanelProps) => {
   return (
-    <form>
-      <div>
+    <MarginForm layout={"inline"}>
+      <Form.Item>
         {/*setParam(Object.assign({},param,{name:evt.target.value}))*/}
         <Input
+          placeholder={"项目名"}
           type="text"
           value={param.name}
           onChange={(evt) => setParam({ ...param, name: evt.target.value })}
         />
+      </Form.Item>
+      <Form.Item>
         <Select
           value={param.personId}
           onChange={(value) =>
@@ -42,7 +46,11 @@ export const SearchPanel = ({ users, param, setParam }: SerachPanelProps) => {
             </Select.Option>
           ))}
         </Select>
-      </div>
-    </form>
+      </Form.Item>
+    </MarginForm>
   );
 };
+
+const MarginForm = styled(Form)`
+  margin-bottom: 2rem;
+`;
