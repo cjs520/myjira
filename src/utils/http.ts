@@ -4,7 +4,7 @@ import { useAuth } from "../context/auth-context";
 const apiUrl = process.env.REACT_APP_API_URL;
 interface Config extends RequestInit {
   token?: string;
-  data?: string;
+  data?: object;
 }
 export const http = async (
   endpoint: string,

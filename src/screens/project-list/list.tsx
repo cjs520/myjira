@@ -1,8 +1,8 @@
 import React from "react";
 import { User } from "./serach-panel";
-import { Table } from "antd";
+import { Table, TableProps } from "antd";
 import dayjs from "dayjs";
-interface Project {
+export interface Project {
   id: string;
   name: string;
   personId: string;
@@ -10,11 +10,10 @@ interface Project {
   organization: string;
   created: number;
 }
-interface ListProps {
+interface ListProps extends TableProps<Project> {
   users: User[];
-  list: Project[];
 }
-export const List = ({ users, list }: ListProps) => {
+export const List = ({ users, ...props }: ListProps) => {
   return (
     <Table
       pagination={false}
@@ -52,7 +51,7 @@ export const List = ({ users, list }: ListProps) => {
           },
         },
       ]}
-      dataSource={list}
+      {...props}
     />
   );
 };

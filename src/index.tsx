@@ -2,18 +2,19 @@ import ReactDOM from "react-dom";
 
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { loadDevTools } from "jira-dev-tool";
-import "antd/dist/antd.less";
-import { AppProviders } from "./context";
-import React from "react";
-import { AuthProvider } from "./context/auth-context";
 
-loadDevTools(() =>
+import "antd/dist/antd.less";
+import React from "react";
+import { AppProviders } from "./context";
+import { loadServer, DevTools } from "jira-dev-tool";
+
+loadServer(() =>
   ReactDOM.render(
     <React.StrictMode>
-      <AuthProvider>
+      <AppProviders>
+        <DevTools />
         <App />
-      </AuthProvider>
+      </AppProviders>
     </React.StrictMode>,
     document.getElementById("root")
   )
