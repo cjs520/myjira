@@ -2,7 +2,12 @@ import { SearchPanel } from "./serach-panel";
 import { List } from "./list";
 import { useEffect, useState } from "react";
 import React from "react";
-import { cleanObject, useDebounce, useMount } from "../../utils";
+import {
+  cleanObject,
+  useDebounce,
+  useDocumentTitle,
+  useMount,
+} from "../../utils";
 
 import { useHttp } from "../../utils/http";
 import styled from "@emotion/styled";
@@ -11,6 +16,7 @@ import { useAuth } from "../../context/auth-context";
 import { useAsync } from "../../utils/use-async";
 import { useProjects } from "../../utils/project";
 import { useUsers } from "../../utils/users";
+import { Helmet } from "react-helmet";
 
 export const ProjectListScreen = () => {
   const [param, setParam] = useState({
@@ -20,9 +26,12 @@ export const ProjectListScreen = () => {
   const debouncedParam = useDebounce(param, 200);
   const { isLoading, error, data: list } = useProjects(debouncedParam);
   const { data: users } = useUsers();
-
+  useDocumentTitle("项目列表", false);
   return (
     <Container>
+      {/*<Helmet>*/}
+      {/*  <title>项目列表</title>*/}
+      {/*</Helmet>*/}
       <h1>项目列表</h1>
       <SearchPanel users={users || []} param={param} setParam={setParam} />
       {error ? (
