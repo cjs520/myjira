@@ -4,7 +4,7 @@ import { User } from "screens/project-list/serach-panel";
 import { http } from "../utils/http";
 import { useMount } from "../utils";
 import { useAsync } from "../utils/use-async";
-import { FullPageErrorFallback, FullPageLoading } from "../componets/lib";
+import { FullPageErrorFallback, FullPageLoading } from "../components/lib";
 interface AuthForm {
   username: string;
   password: string;

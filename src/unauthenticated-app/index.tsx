@@ -11,8 +11,8 @@ export const UnauthenticatedApp = () => {
   const [error, setError] = useState<Error | null>(null);
   return (
     <Container>
-      <Hearder />
-      <Backgroud />
+      <Header />
+      <Background />
       <ShadowCard>
         <Title>{isRegister ? "请注册" : "请登录"}</Title>
         {error ? (
@@ -47,13 +47,14 @@ const ShadowCard = styled(Card)`
   box-shadow: rgb(0 0 0 / 10%) 0px 0px 10px;
   text-align: center;
 `;
-const Hearder = styled.header`
+
+const Header = styled.header`
   background: url(${logo}) no-repeat center;
   padding: 5rem 0;
   background-size: 8rem;
   width: 100%;
 `;
-const Backgroud = styled.div`
+const Background = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;

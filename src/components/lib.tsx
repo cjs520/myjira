@@ -6,7 +6,7 @@ import React from "react";
 export const Row = styled.div<{
   gap?: number | boolean;
   between?: boolean;
-  marginBottom?: boolean;
+  marginBottom?: number;
 }>`
   display: flex;
   align-items: center;
@@ -27,7 +27,7 @@ const FullPage = styled.div`
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-content: center;
+  align-items: center;
 `;
 export const FullPageLoading = () => (
   <FullPage>
@@ -37,6 +37,6 @@ export const FullPageLoading = () => (
 export const FullPageErrorFallback = ({ error }: { error: Error | null }) => (
   <FullPage>
     <DevTools />
-    <Typography.Text type={"danger"}>{error?.message}</Typography.Text>{" "}
+    <Typography.Text type={"danger"}>{error?.message}</Typography.Text>
   </FullPage>
 );

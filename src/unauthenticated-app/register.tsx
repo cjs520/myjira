@@ -9,7 +9,7 @@ export const RegisterScreen = ({
 }: {
   onError: (error: Error) => void;
 }) => {
-  const { register } = useAuth();
+  const { register, user } = useAuth();
   const { run, isLoading } = useAsync(undefined, { throwOnError: true });
   const handleSubmit = async ({
     rpassword,

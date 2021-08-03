@@ -13,29 +13,32 @@ export const http = async (
   const config = {
     method: "GET",
     headers: {
-      Authorization: token ? `Bearer${token}` : "",
+      Authorization: token ? `Bearer ${token}` : "",
       "Content-Type": data ? "application/json" : "",
     },
     ...customConfig,
   };
+
   if (config.method.toUpperCase() === "GET") {
     endpoint += `?${qs.stringify(data)}`;
   } else {
     config.body = JSON.stringify(data || {});
   }
-  return window.fetch(`${apiUrl}/${endpoint}`, config).then(async (reponse) => {
-    if (reponse.status === 401) {
-      await auth.logout();
-      window.location.reload();
-      return Promise.reject({ message: "请重新登录" });
-    }
-    const data = await reponse.json();
-    if (reponse.ok) {
-      return data;
-    } else {
-      return Promise.reject(data);
-    }
-  });
+  return window
+    .fetch(`${apiUrl}/${endpoint}`, config)
+    .then(async (response) => {
+      if (response.status === 401) {
+        await auth.logout();
+        window.location.reload();
+        return Promise.reject({ message: "请重新登录" });
+      }
+      const data = await response.json();
+      if (response.ok) {
+        return data;
+      } else {
+        return Promise.reject(data);
+      }
+    });
 };
 export const useHttp = () => {
   const { user } = useAuth();
