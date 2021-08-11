@@ -17,6 +17,7 @@ import { useAsync } from "../../utils/use-async";
 import { useProjects } from "../../utils/project";
 import { useUsers } from "../../utils/users";
 import { Helmet } from "react-helmet";
+import { useUrlQueryParam } from "../../utils/url";
 
 export const ProjectListScreen = () => {
   const [param, setParam] = useState({
@@ -27,6 +28,7 @@ export const ProjectListScreen = () => {
   const { isLoading, error, data: list } = useProjects(debouncedParam);
   const { data: users } = useUsers();
   useDocumentTitle("项目列表", false);
+  useUrlQueryParam(["random"]);
   return (
     <Container>
       {/*<Helmet>*/}

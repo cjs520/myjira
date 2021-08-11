@@ -7,13 +7,16 @@ import "antd/dist/antd.less";
 import React from "react";
 import { AppProviders } from "./context";
 import { loadServer, DevTools } from "jira-dev-tool";
+import { BrowserRouter as Router } from "react-router-dom";
 
 loadServer(() =>
   ReactDOM.render(
     <React.StrictMode>
       <AppProviders>
         <DevTools />
+        {/*<Router>*/}
         <App />
+        {/*</Router>*/}
       </AppProviders>
     </React.StrictMode>,
     document.getElementById("root")
